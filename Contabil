@@ -1,0 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package contabil3;
+
+/**
+ *
+ * @author Luís
+ */
+public class Contabil {
+    
+    protected String vPassivo;
+    protected String vAtivo;
+
+    public String getvPassivo() {
+        return vPassivo;
+    }
+
+    public void setvPassivo(String vPassivo) {
+        this.vPassivo = vPassivo;
+    }
+
+    public String getvAtivo() {
+        return vAtivo;
+    }
+
+    public void setvAtivo(String vAtivo) {
+        this.vAtivo = vAtivo;
+    }
+    
+//    public String comparador(String Sativo, String Spassivo){
+//        
+//        Double Dativo = Double.parseDouble(Sativo);
+//        Double Dpassivo = Double.parseDouble(Spassivo);
+//        
+//        if(Dativo == Dpassivo){
+//            resultado += Dativo;
+//        }   
+//        return "ta válido";
+//    }
+    
+    
+}
