@@ -1,0 +1,73 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package contabil3;
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.xml.bind.JAXBIntrospector;
+
+/**
+ *
+ * @author Luís
+ */
+public class Principal {
+
+    public static void main(String[] args) {
+        String mudar = "0";
+
+//    ArrayList vPassivos = new String[] ;
+//    ArrayList vAtivos = new ArrayList<String>(); 
+        String vAtivos[] = new String[140];
+//    String vPassivos[] = null;
+        String vPassivos[] = new String[140];
+        for (int i = 0; mudar.equals("p") == false; i++) {
+            Contabil x = new Contabil();
+
+            mudar = JOptionPane.showInputDialog("Informe o valor ativo(Utilize ponto, NÃO vírgula):\n Para passar para passivo digite p");
+            x.setvPassivo(mudar);
+            if (mudar.contains("p") == false) {
+                vAtivos[i] = mudar;
+            }
+
+        }
+
+        for (int i = 0; mudar.equals("0") == false; i++) {
+            mudar = JOptionPane.showInputDialog("Informe o valor passivo \nInforme 0(ZERO)Para finalizar o programa!");
+
+            if (mudar.equals("0") == false) {
+                vPassivos[i] = mudar;
+            }
+        }
+
+//        Contabil l = new Contabil();
+        String resultado = "VALORES IGUAIS\n";
+        Double dAtivo;
+        Double dPassivo;
+        for (int p = 0; vPassivos[p] != null; p++) {
+            try {
+                for (int a = 0; vAtivos[a] != null; a++) {
+//                l.comparador(vAtivos[a], vPassivos[p]);
+
+                    dAtivo = Double.parseDouble(vPassivos[p]);
+                    dPassivo = Double.parseDouble(vAtivos[a]);
+//                    resultado +=vPassivos[p]+vAtivos[a] +  "\n";
+                    if (vAtivos[a].equals(vPassivos[p])) {
+//                        int x = vAtivos[a+1];
+                        int x = p+1;
+                        resultado += (a+1) +"º ativo = " + x +"º passivo"+ " Valor(" + dAtivo + ")\n";
+                    }
+
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("O valor informado não é um numero");
+            } catch (Exception e) {
+                System.out.print("Erro desconhecido!!");
+            }
+
+        }
+        JOptionPane.showMessageDialog(null, resultado);
+    }
+}
